@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 25 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .story-box {
+            background: #05070a;
+            border: 1px solid #1a1d2e;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            font-family: 'Courier New', Courier, monospace;
+            color: #8a8fbd;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            text-align: left;
+        }
+        .missing-word {
+            color: #ff0055;
+            font-weight: bold;
+            border-bottom: 2px dashed #ff0055;
+            padding: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 25</h1>
+        <p style="color: #9c27b0; font-size: 0.9rem;">[ Very Hard ]</p>
+
+        <!-- Hikaye Metni Alanı -->
+        <div class="story-box">
+            "Sistemdeki tüm kayıtlar silindi, sinyaller kesildi ve karanlık tamamen çöktü. Ekranda yanıp sönen son bir satır kaldı: Her hikayenin bir sonu vardır ama bu sadece bir <span class="missing-word">[ ? ]</span>."
+        </div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="..." autocomplete="off">
+            <button onclick="checkAnswer()">></button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim().toLowerCase();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // Eksik Kelime / Cevap: baslangic (veya başlangıç)
+            if (inputVal === "baslangic" || inputVal === "başlangıç") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "OK";
+                
+                setTimeout(() => {
+                    window.location.href = "baslangic.html";
+                }, 1000);
+            } else {
+                msgBox.style.color = "#ff3366";
+                msgBox.textContent = "ERR";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") checkAnswer();
+        });
+    </script>
+</body>
+</html>

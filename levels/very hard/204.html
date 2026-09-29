@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 18 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 18</h1>
+        <p style="color: #9c27b0; font-size: 0.9rem;">[ Çok Zor Seviye: Kayıt Dosyası ]</p>
+
+        <!-- Bulmaca / Log Çıktısı -->
+        <div style="background: #090a0f; border: 1px solid #1a1d2e; padding: 20px; border-radius: 8px; margin: 25px 0; text-align: left; font-family: monospace; font-size: 0.85rem; color: #8a8fbd;">
+            <p style="color: #ff3366; margin: 0 0 10px 0;">[LOG_ERR_404]: Protokol ayrıştırılamadı.</p>
+            <p style="margin: 0; color: #00ff88;">
+                SYS_TRACE: 0x99_INIT <br>
+                AUTH_KEY: nova_protocol_v3 <br>
+                STATUS: ENCRYPTED
+            </p>
+        </div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="Protokol anahtarını gir..." autocomplete="off">
+            <button onclick="checkAnswer()">LOGU ÇÖZ</button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.8rem; color: #4a4f6e;">
+            // Kayıt izlerindeki (SYS_TRACE) ilk tanımlama kodunu (0x...) ve AUTH_KEY değerini birleştir: [TRACE]_[KEY]
+        </p>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim().toLowerCase();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // Doğru Kombinasyon: 0x99_nova_protocol_v3
+            if (inputVal === "0x99_nova_protocol_v3") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "LOG BÜTÜNLÜĞÜ SAĞLANDI! Yönlendiriliyorsunuz...";
+                
+                setTimeout(() => {
+                    window.location.href = "logs.html";
+                }, 1200);
+            } else {
+                msgBox.style.color = "#ff3366";
+                msgBox.textContent = "GEÇERSİZ BİRLEŞİM.";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                checkAnswer();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 39 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* Ters Yerçekimi Etkisi */
+        .card {
+            transform: rotate(180deg);
+            transition: transform 0.5s ease;
+        }
+        
+        .zero-g-core {
+            border: 1px dashed #ff0055;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            background: #05020a;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 39</h1>
+        <p style="color: #ff0055; font-size: 0.9rem;">[ IMPOSSIBLE ]</p>
+
+        <!-- Yerçekimsiz Çekirdek -->
+        <div class="zero-g-core">
+            <p style="font-family: monospace; color: #00f0ff; font-size: 0.85rem; margin: 0;">
+                [GRAVITY_VECTOR_INVERTED]
+            </p>
+        </div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="..." autocomplete="off">
+            <button onclick="checkAnswer()">></button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.7rem; color: #1e293b; margin-top: 25px;">
+            // console -> gravityData.readVector()
+        </p>
+    </div>
+
+    <script>
+        // Konsoldan çalıştırılacak özel nesne
+        window.gravityData = {
+            vector: "YWJzb2x1dGVfemVyb19ub3Zh", // Base64
+            readVector: function() {
+                console.log("%c[VECTOR_DECODED]: " + atob(this.vector), "color: #00f0ff; font-weight: bold;");
+                return "Sinyal okundu.";
+            }
+        };
+
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim().toLowerCase();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // Base64 (YWJzb2x1dGVfemVyb19ub3Zh) Çözümü: absolute_zero_nova
+            if (inputVal === "absolute_zero_nova") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "OK";
+                
+                setTimeout(() => {
+                    window.location.href = "absolute_zero_nova.html";
+                }, 1000);
+            } else {
+                msgBox.style.color = "#ff0055";
+                msgBox.textContent = "ERR";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") checkAnswer();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doğru Cevap! - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .success-box {
+            border: 1px solid #00ff88;
+            background: rgba(0, 255, 136, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>TEBRİKLER!</h1>
+        <p style="color: #00ff88; font-size: 1rem; font-weight: bold;">[ #00FFFF = CYAN ]</p>
+
+        <div class="success-box">
+            <p style="color: #ffffff; font-size: 1.05rem;">
+                Gizli resmi doğru deşifre ettin!
+            </p>
+            <p style="color: #8a8fbd; font-size: 0.9rem; margin-top: 10px;">
+                Bölüm 5 yükleniyor, lütfen bekleyin...
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // 1.2 saniye sonra otomatik olarak level_4.html sayfasına yönlendirir
+        setTimeout(() => {
+            window.location.href = "level_5.html";
+        }, 1200);
+    </script>
+</body>
+</html>

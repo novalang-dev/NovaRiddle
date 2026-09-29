@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 27 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* Gizli Stil Sınıfı */
+        .phoenix_flame {
+            background-color: #ff3300;
+            box-shadow: 0 0 25px #ff3300;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 27</h1>
+        <p style="color: #9c27b0; font-size: 0.9rem;">[ Very Hard ]</p>
+
+        <!-- Alev / Çekirdek Efekti -->
+        <div class="phoenix_flame"></div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="..." autocomplete="off">
+            <button onclick="checkAnswer()">></button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim().toLowerCase();
+            const msgBox = document.getElementById("feedback-msg");
+
+            if (inputVal === "phoenix_flame") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "OK";
+                
+                setTimeout(() => {
+                    window.location.href = "phoenix_flame.html";
+                }, 1000);
+            } else {
+                msgBox.style.color = "#ff3366";
+                msgBox.textContent = "ERR";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") checkAnswer();
+        });
+    </script>
+</body>
+</html>

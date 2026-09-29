@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 38 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .event-horizon {
+            width: 100px;
+            height: 100px;
+            border: 3px solid transparent;
+            border-top: 3px solid #ff0055;
+            border-right: 3px solid #00f0ff;
+            border-radius: 50%;
+            margin: 30px auto;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 38</h1>
+        <p style="color: #ff0055; font-size: 0.9rem;">[ IMPOSSIBLE ]</p>
+
+        <!-- Dönen Olay Ufku Seviyesi -->
+        <div class="event-horizon"></div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="..." autocomplete="off">
+            <button onclick="checkAnswer()">></button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.7rem; color: #0f172a; margin-top: 25px;">
+            // Keep console open... data is leaking through time.
+        </p>
+    </div>
+
+    <script>
+        // Her 5 saniyede bir konsola sızan veri
+        setInterval(() => {
+            console.log("%c[TIME_LEAK]: c2luZ3VsYXJpdHlfZ3Jhdml0eV96ZXJv", "color: #ff0055; font-size: 0.75rem;");
+        }, 5000);
+
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim().toLowerCase();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // Base64 (c2luZ3VsYXJpdHlfZ3Jhdml0eV96ZXJv) Çözümü: singularity_gravity_zero
+            if (inputVal === "singularity_gravity_zero") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "OK";
+                
+                setTimeout(() => {
+                    window.location.href = "singularity_gravity_zero.html";
+                }, 1000);
+            } else {
+                msgBox.style.color = "#ff0055";
+                msgBox.textContent = "ERR";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") checkAnswer();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 33 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 33</h1>
+        <p style="color: #ff0055; font-size: 0.9rem;">[ IMPOSSIBLE ]</p>
+
+        <!-- Dipsiz Boşluk Görsel Alanı -->
+        <div style="background: #000; border: 1px dashed #1e293b; padding: 40px; border-radius: 8px; margin: 30px 0;">
+            <p style="font-family: monospace; color: #334155; font-size: 0.8rem; margin: 0;">
+                [ VOID_NODE_LOCKED ]
+            </p>
+        </div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="..." autocomplete="off">
+            <button onclick="checkAnswer()">></button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.7rem; color: #0f172a; margin-top: 25px;">
+            // console -> window.getSecret()
+        </p>
+    </div>
+
+    <script>
+        // Konsoldan çağrılması gereken gizli fonksiyon
+        window.getSecret = function() {
+            const encoded = "cGhhbnRvbV9zeW5hd3NlXzg4"; // Base64
+            console.log("%c[SYSTEM_RESPONSE]: " + atob(encoded), "color: #00ff88; font-weight: bold;");
+            return "Anahtar konsola yazdırıldı.";
+        };
+
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // Çözüm: phantom_synapse_88
+            if (inputVal === "phantom_synapse_88") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "OK";
+                
+                setTimeout(() => {
+                    window.location.href = "phantom_synapse_88.html";
+                }, 1000);
+            } else {
+                msgBox.style.color = "#ff0055";
+                msgBox.textContent = "ERR";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") checkAnswer();
+        });
+    </script>
+</body>
+</html>

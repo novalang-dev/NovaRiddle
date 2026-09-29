@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINAL - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .abyssal-core {
+            border: 2px solid #ef4444;
+            background: rgba(239, 68, 68, 0.05);
+            padding: 35px;
+            border-radius: 8px;
+            margin: 30px 0;
+            box-shadow: 0 0 35px rgba(239, 68, 68, 0.3);
+            animation: pulseAbyss 1.5s infinite alternate;
+        }
+
+        @keyframes pulseAbyss {
+            from { box-shadow: 0 0 15px rgba(239, 68, 68, 0.2); }
+            to { box-shadow: 0 0 40px rgba(239, 68, 68, 0.6); }
+        }
+
+        .abyssal-title {
+            font-family: monospace;
+            color: #f87171;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            margin: 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1 style="color: #ef4444;">SON BÖLÜM</h1>
+        <p style="color: #ef4444; font-size: 0.9rem; font-weight: bold;">[ ABYSSAL SINGULARITY ]</p>
+
+        <!-- Zifiri Derinlik Çekirdeği -->
+        <div class="abyssal-core">
+            <p class="abyssal-title">💥 [SYSTEM_END_OF_MATRIX] 💥</p>
+        </div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="Son Anahtarı Girin..." autocomplete="off">
+            <button onclick="checkAnswer()">></button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.7rem; color: #334155; margin-top: 25px;">
+            // console -> AbyssalCore.breach()
+        </p>
+    </div>
+
+    <script>
+        // Final Protokolü
+        window.AbyssalCore = {
+            breach: function() {
+                console.log("%c[ABYSSAL_SINGULARITY]: Sistem sınırlarına ulaşıldı...", "color: #ef4444; font-size: 0.9rem;");
+                const finalCode = "b3ZlcmxvcmRfZ3JhbmRfZmluYWxfMjAyNg=="; // Base64
+                const decrypted = atob(finalCode);
+                
+                console.log("%c[ULTIMATE_KEY]: " + decrypted, "color: #00ff88; font-weight: bold; font-size: 1.2rem; text-shadow: 0 0 10px #00ff88;");
+                return "Tebrikler usta! Son kapının anahtarı hazır.";
+            }
+        };
+
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim().toLowerCase();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // Çözüm: overlord_grand_final_2026
+            if (inputVal === "overlord_grand_final_2026") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "SİSTEM TAMAMEN ÇÖZÜLDÜ! TEBRİKLER!";
+                
+                setTimeout(() => {
+                    alert("🎉 TEBRİKLER! Nova Riddle 'Impossible' Katmanı Dahil Tüm Seviyeleri Başarıyla Tamamladın!");
+                    window.location.href = "../../victory_credits.html";
+                }, 1500);
+            } else {
+                msgBox.style.color = "#ef4444";
+                msgBox.textContent = "HATALI ANAHTAR!";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") checkAnswer();
+        });
+    </script>
+</body>
+</html>

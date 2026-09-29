@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 17 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 17</h1>
+        <p style="color: #9c27b0; font-size: 0.9rem;">[ Çok Zor Seviye: Sızıntı ]</p>
+
+        <!-- Bulmaca Alanı -->
+        <div style="background: #090a0f; border: 1px solid #1a1d2e; padding: 25px; border-radius: 8px; margin: 30px 0; text-align: left;">
+            <p style="font-family: monospace; color: #ff3366; font-size: 0.85rem; margin-bottom: 10px;">
+                [SİSTEM UYARISI]: Paket iletimi yarıda kesildi.
+            </p>
+            <p style="font-family: monospace; color: #00ff88; font-size: 0.95rem; margin: 0; word-break: break-all;">
+                İstemci IP: 192.168.X.104 <br>
+                Sinyal Blok Kodu: [ 17 * 12 ]
+            </p>
+        </div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="Eksik IP adresini gir (Örn: 192.168...)" autocomplete="off">
+            <button onclick="checkAnswer()">SİNYALİ TAMAMLA</button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.8rem; color: #4a4f6e;">
+            // X değerini bulmak için Blok Kodu hesabını yap ve tam IP adresini oluştur.
+        </p>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // 17 * 12 = 204
+            // Tam IP: 192.168.204.104
+            if (inputVal === "192.168.204.104") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "BAĞLANTI SAĞLANDI! Ana ağa erişiliyor...";
+                
+                setTimeout(() => {
+                    window.location.href = "204.html";
+                }, 1200);
+            } else {
+                msgBox.style.color = "#ff3366";
+                msgBox.textContent = "HATALI IP: Sinyal doğrulanamadı.";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                checkAnswer();
+            }
+        });
+    </script>
+</body>
+</html>

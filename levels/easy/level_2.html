@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- İPÜCÜ 1: Tarayıcı sekmesindeki başlığa dikkat et! -->
+    <title>Kırmızı Kapı Yanıltır, Maviye Güven! - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .door-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .door {
+            width: 100px;
+            height: 150px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        .door:hover {
+            transform: scale(1.05);
+        }
+        .red-door { background: #ff3366; box-shadow: 0 0 15px rgba(255, 51, 102, 0.4); }
+        .blue-door { background: #0088ff; box-shadow: 0 0 15px rgba(0, 136, 255, 0.4); }
+        .green-door { background: #00ff88; color: #0f111a; box-shadow: 0 0 15px rgba(0, 255, 136, 0.4); }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 2</h1>
+        <p style="color: #8a8fbd; font-size: 0.9rem;">[ Kolay Seviye: Renkli Kapılar ]</p>
+
+        <div class="hint-box" style="margin-top: 25px;">
+            <strong>GÖREV:</strong><br>
+            Önünde üç farklı kapı var. Yanlış kapı seni en başa döndürebilir. Doğru kapıyı seçmek için gözünü yukarıdan ayırma!
+        </div>
+
+        <!-- Seçenek Kapıları -->
+        <div class="door-container">
+            <a href="level_1.html" class="door red-door">KIRMIZI</a>
+            <a href="level_3.html" class="door blue-door">MAVİ</a>
+            <a href="level_1.html" class="door green-door">YEŞİL</a>
+        </div>
+
+        <p style="font-size: 0.85rem; color: #5a5f80;">
+            İpucu: Tarayıcı sekmesinde ne yazıyor?
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 16 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* Subliminal yüz için anlık flaş animasyonu */
+        @keyframes subliminalFlash {
+            0%, 90%, 100% { opacity: 0; }
+            92% { opacity: 0.15; } /* Çok hafif ve anlık görünür */
+            95% { opacity: 0; }
+        }
+
+        .subliminal-face {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30%; /* Yüzün boyutu */
+            opacity: 0;
+            pointer-events: none;
+            animation: subliminalFlash 2s infinite; /* 2 saniyede bir milisaniyelik çakar */
+            mix-blend-mode: overlay; /* Arka planla korkunç bir uyum sağlar */
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 16</h1>
+        <p style="color: #ff0055; font-size: 0.9rem;">[Çok Zor]</p>
+
+        <!-- Görsel ve Gizli Subliminal Yüz Alanı -->
+        <div style="position: relative; display: inline-block; max-width: 400px; margin: 30px 0;">
+            <!-- Ardadaki Binary Tünel Görselin -->
+            <img src="./images/dont_look_behind (2).png" alt="Binary" style="width: 100%; display: block; border-radius: 8px;">
+            
+            <!-- Üstünden Anlık Geçen Subliminal Yüz / Maske -->
+            <img src="./images/dont_look_behind.png" alt="Don't Look Behind" class="subliminal-face">
+        </div>
+
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="Şifreyi gir..." autocomplete="off">
+            <button onclick="checkAnswer()">DOĞRULA</button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.8rem; color: #4a4f6e;">
+            // Gözlerini ekrandan ayırma. Bir şey hareket etti ve yazıyı sana fısıldadı. Fısıltıyı çöz ve şifreyi gir.
+        </p>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim().toLowerCase();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // Belirlediğimiz ürpertici şifre (Örn: dont_look_behind)
+            if (inputVal === "dont_look_behind") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "BAŞARILI... İçeri sızdın.";
+                setTimeout(() => {
+                    window.location.href = "dont_look_behind.html";
+                }, 1200);
+            } else {
+                msgBox.style.color = "#ff3366";
+                msgBox.textContent = "YANLIŞ ŞİFRE.";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") checkAnswer();
+        });
+    </script>
+</body>
+</html>

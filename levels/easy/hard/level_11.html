@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 11 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 11</h1>
+        <p style="color: #ff0055; font-size: 0.9rem;">[ Zor Seviye ]</p>
+
+        <div style="background: #090a0f; border: 1px solid #1a1d2e; padding: 25px; border-radius: 8px; margin: 30px 0;">
+            <p id="status-text" style="font-family: monospace; color: #ff3366; font-size: 0.95rem; margin: 0;">
+                ERİŞİM ENGELENDİ: Desteklenmeyen tarayıcı istemcisi!
+            </p>
+        </div>
+
+        <p style="font-size: 0.8rem; color: #4a4f6e;">
+            // HTTP Header İstemci Denetimi: 'NovaBrowser/2.0' bekleniyor.
+        </p>
+    </div>
+
+    <script>
+        // Tarayıcı simülasyonu fonksiyonu
+        function authenticateSession(agentName) {
+            if (agentName === "NovaBrowser/2.0") {
+                document.getElementById("status-text").style.color = "#00ff88";
+                document.getElementById("status-text").textContent = "İSTEMCİ DOĞRULANDI! Yönlendiriliyorsunuz...";
+                setTimeout(() => {
+                    window.location.href = "level_12.html";
+                }, 1200);
+            } else {
+                console.log("%c[HATA]: Bilesen 'NovaBrowser/2.0' olarak tanımlanmadı.", "color: #ff3366;");
+            }
+        }
+    </script>
+</body>
+</html>

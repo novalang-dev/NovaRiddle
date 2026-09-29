@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 40 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .cryo-core {
+            border: 1px solid #00f0ff;
+            background: rgba(0, 240, 255, 0.03);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            box-shadow: inset 0 0 15px rgba(0, 240, 255, 0.2);
+        }
+
+        .ice-text {
+            font-family: monospace;
+            color: #a5f3fc;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 40</h1>
+        <p style="color: #00f0ff; font-size: 0.9rem;">[ ABSOLUTE ZERO ]</p>
+
+        <!-- Kriyojenik Alan -->
+        <div class="cryo-core">
+            <p class="ice-text">❄️ [STATUS: FROZEN_0K] ❄️</p>
+        </div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="..." autocomplete="off">
+            <button onclick="checkAnswer()">></button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.7rem; color: #0f172a; margin-top: 25px;">
+            // console -> window.frozenPayload.decode()
+        </p>
+    </div>
+
+    <script>
+        // Dondurulmuş veri nesnesi
+        window.frozenPayload = {
+            raw: "Y29zbWljX3RoYXdfOTk5", // Base64
+            decode: function() {
+                const key = atob(this.raw);
+                console.log("%c[CRYO_DECRYPTION]: " + key, "color: #a5f3fc; font-weight: bold;");
+                return key;
+            }
+        };
+
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim().toLowerCase();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // Base64 (Y29zbWljX3RoYXdfOT95 / Y29zbWljX3RoYXdfOTk5) Çözümü: cosmic_thaw_999
+            if (inputVal === "cosmic_thaw_999") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "OK";
+                
+                setTimeout(() => {
+                    window.location.href = "cosmic_thaw_999.html";
+                }, 1000);
+            } else {
+                msgBox.style.color = "#ff0055";
+                msgBox.textContent = "ERR";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") checkAnswer();
+        });
+    </script>
+</body>
+</html>

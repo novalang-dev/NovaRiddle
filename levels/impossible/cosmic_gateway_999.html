@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 48 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .portal-box {
+            border: 2px solid #ec4899;
+            background: rgba(236, 72, 153, 0.05);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            box-shadow: 0 0 25px rgba(236, 72, 153, 0.2);
+        }
+
+        .portal-title {
+            font-family: monospace;
+            color: #f472b6;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 48</h1>
+        <p style="color: #ec4899; font-size: 0.9rem;">[ COSMIC GATEWAY ]</p>
+
+        <!-- Geçit Alanı -->
+        <div class="portal-box">
+            <p class="portal-title">🌌 [GATEWAY_STABILIZED] 🌌</p>
+        </div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="..." autocomplete="off">
+            <button onclick="checkAnswer()">></button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.7rem; color: #1e293b; margin-top: 25px;">
+            // console -> GatewayCrypto.openPortal()
+        </p>
+    </div>
+
+    <script>
+        // Crypto Gateway Fonksiyonu
+        window.GatewayCrypto = {
+            rawPayload: "cGhhbnRvbV_aG9yaXpvbl94OTk=", // Base64
+            openPortal: async function() {
+                console.log("%c[GATEWAY]: Kriptografik doğrulama yapılıyor...", "color: #f472b6;");
+                
+                // Şifreli metin: "phantom_horizon_x99"
+                const key = "cGhhbnRvbV9ob3Jpem9uX3g5OQ=="; // Base64 correct
+                const decoded = atob(key);
+
+                console.log("%c[PORTAL_OPENED]: " + decoded, "color: #00ff88; font-weight: bold; font-size: 1rem;");
+                return decoded;
+            }
+        };
+
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim().toLowerCase();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // Çözüm: phantom_horizon_x99
+            if (inputVal === "phantom_horizon_x99") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "OK";
+                
+                setTimeout(() => {
+                    window.location.href = "phantom_horizon_x99.html";
+                }, 1000);
+            } else {
+                msgBox.style.color = "#ff0055";
+                msgBox.textContent = "ERR";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") checkAnswer();
+        });
+    </script>
+</body>
+</html>

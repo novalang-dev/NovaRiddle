@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 10 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 10</h1>
+        <p style="color: #8a8fbd; font-size: 0.9rem;">[ Orta Seviye Finali ]</p>
+
+        <div style="background: #090a0f; border: 1px solid #1a1d2e; padding: 25px; border-radius: 8px; margin: 30px 0;">
+            <p style="font-family: monospace; color: #ff3366; font-size: 1rem; margin: 0;">
+                SYSTEM LOCKED: Konsol erişimi bekleniyor...
+            </p>
+        </div>
+
+        <p style="font-size: 0.8rem; color: #4a4f6e;">
+            // F12 -> Console. Geliştirici konsolu çıktılarını kontrol et.
+        </p>
+    </div>
+
+    <script>
+        // Konsola şifreli ipucu ve yönlendirme basılır
+        console.log("%c[NOVA SYSTEM]: Erişim protokolü aktif.", "color: #00ff88; font-weight: bold; font-size: 14px;");
+        console.log("%cKilit açma fonksiyonu tetiklenmeli: novaSystem.unlock('zor_seviye')", "color: #8a8fbd;");
+
+        window.novaSystem = {
+            unlock: function(key) {
+                if (key === "zor_seviye") {
+                    console.log("%c[BAŞARILI]: Zor Seviye Yükleniyor...", "color: #00ff88; font-weight: bold;");
+                    alert("Tebrikler! Orta Seviye tamamlandı. Zor Seviye'ye geçiyorsunuz.");
+                    window.location.href = "../hard/level_11.html";
+                } else {
+                    console.log("%c[HATA]: Geçersiz kilit anahtarı!", "color: #ff3366;");
+                }
+            }
+        };
+    </script>
+</body>
+</html>

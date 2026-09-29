@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 44 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .glitch-card {
+            border: 2px solid #ff0055;
+            background: #05020a;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glitch-text {
+            font-family: monospace;
+            color: #ff0055;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            animation: glitchAnim 0.3s infinite alternate;
+        }
+
+        @keyframes glitchAnim {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-2px, 1px); }
+            100% { transform: translate(2px, -1px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 44</h1>
+        <p style="color: #ff0055; font-size: 0.9rem;">[ THE FINAL ANOMALY ]</p>
+
+        <!-- Glitch Alanı -->
+        <div class="glitch-card">
+            <p class="glitch-text">⚠️ [SYSTEM_COLLAPSE_IMMINENT] ⚠️</p>
+        </div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="..." autocomplete="off">
+            <button onclick="checkAnswer()">></button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.7rem; color: #1e293b; margin-top: 25px;">
+            // console -> anomalyMatrix.decode()
+        </p>
+    </div>
+
+    <script>
+        // Hex ile paketlenmiş Base64 dizisi: "b21lZ2Ffb3ZlcmxvcmRfMDAw" (omega_overlord_000)
+        window.anomalyMatrix = {
+            // Hex string represent: "b21lZ2Ffb3ZlcmxvcmRfMDAw"
+            hexPayload: "6232316c5a32466662335a6c636d7876636d52664d444177", 
+            
+            decodeHex: function(hex) {
+                let str = '';
+                for (let i = 0; i < hex.length; i += 2) {
+                    str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+                }
+                return str;
+            },
+
+            decode: function() {
+                const b64 = this.decodeHex(this.hexPayload);
+                const finalKey = atob(b64);
+                console.log("%c[ANOMALY_RESOLVED]: " + finalKey, "color: #ff0055; font-weight: bold; font-size: 1rem;");
+                return finalKey;
+            }
+        };
+
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim().toLowerCase();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // Çözüm: omega_overlord_000
+            if (inputVal === "omega_overlord_000") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "OK";
+                
+                setTimeout(() => {
+                    window.location.href = "omega_overlord_000.html";
+                }, 1000);
+            } else {
+                msgBox.style.color = "#ff0055";
+                msgBox.textContent = "ERR";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") checkAnswer();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victory & Credits - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        body {
+            background-color: #030008;
+            overflow: hidden; /* Dış kaydırma çubuğunu gizle */
+        }
+
+        .credits-window {
+            width: 100%;
+            max-width: 650px;
+            height: 400px;
+            margin: 20px auto;
+            border: 1px solid #1e293b;
+            background: rgba(5, 2, 10, 0.9);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Otomatik Yukarı Kayan Alan */
+        .credits-content {
+            position: absolute;
+            width: 100%;
+            top: 100%;
+            animation: scrollCredits 25s linear infinite;
+            padding: 0 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .credits-window:hover .credits-content {
+            animation-play-state: paused; /* Üzerine gelince dursun */
+        }
+
+        @keyframes scrollCredits {
+            0% { top: 100%; }
+            100% { top: -160%; }
+        }
+
+        .section-title {
+            color: #00ff88;
+            font-family: monospace;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-top: 40px;
+            margin-bottom: 10px;
+        }
+
+        .role-name {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+
+        .person-name {
+            color: #f8fafc;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        /* En Alttaki Random Gibi Duran Uzuuuuuuuun Kod Dizesi */
+        .system-dump {
+            font-family: monospace;
+            font-size: 0.65rem;
+            color: #1e293b; /* Çok silik ve belirgin olmayan renk */
+            word-break: break-all;
+            margin-top: 80px;
+            padding: 10px;
+            line-height: 1.3;
+            letter-spacing: 1px;
+            user-select: all;
+        }
+
+        .highlight-noise {
+            color: #334155;
+        }
+    </style>
+</head>
+<body>
+    <div class="card" style="max-width: 700px;">
+        <h1 style="color: #00ff88; letter-spacing: 3px; margin-bottom: 5px;">TEBRİKLER!</h1>
+        <p style="color: #00f0ff; font-size: 0.85rem; margin-top: 0;">[ İMKANSIZ KATMAN TAMAMLANTI ]</p>
+
+        <!-- Kaydırmalı Pencere -->
+        <div class="credits-window">
+            <div class="credits-content">
+                <h2 style="color: #ffffff; letter-spacing: 4px; margin-top: 20px;">NOVA RIDDLE</h2>
+                <p style="color: #64748b; font-size: 0.8rem;">--- CREDITS ---</p>
+
+                <div class="section-title">OYUN TASARIMI VE YAPIMI</div>
+                <div class="person-name">NovaLang Developers</div>
+
+                <div class="section-title">BULMACA MİMARİSİ</div>
+                <div class="person-name">Nova System Engine</div>
+
+                <div class="section-title">FRONTEND & UI</div>
+                <div class="person-name">NovaLang Developers</div>
+
+                <div class="section-title">TEST & KALİTE KONTROL</div>
+                <div class="person-name">Ahmet Ensar & NovaLang Team</div>
+
+                <div class="section-title">ÖZEL TEŞEKKÜRLER</div>
+                <div class="role-name">Tüm İmkansız Seviyeleri Aşan</div>
+                <div class="person-name">CESUR OYUNCULARA</div>
+
+                <p style="margin-top: 40px; color: #00f0ff; font-size: 0.85rem; font-style: italic; padding: 0 15px;">
+    "Bu proje tamamen yerli imkânlarla, bağımsız bir şekilde geliştirilmiştir. Oyun dünyasına yeni zihinler ve mantık katmanları kazandırmak dileğiyle..."
+</p>
+
+
+                <p style="margin-top: 50px; color: #475569; font-size: 0.8rem;">
+                    Oynadığınız için teşekkürler.<br>Gelecek güncellemelerde görüşmek üzere!
+                </p>
+
+                <div class="system-dump">
+                    0x9A4F82B00119CF832A110892BFA90011283948201928471029384710293847102938471029384710293847102938471029384710293847102938471029384710293847102938471029384710293847102938471029384710293847102938471029384710293847102938471<span class="highlight-noise">__SYS_HASH_DUMP_START__9928103948120938401928340192834091283401928340192834019283401928340192834019283401928340192834019283401928340192834019283401928340192834091283409128340912834</span><span style="color: #475569; font-weight: bold;">NOVA_DLC_EXPANSION_2026</span><span class="highlight-noise">8912304982304982039482039482039482039482039482039482039482039482039482039482039482039482039482039482039482039482039482039482039482039482039482039482039482039482039482039482039482039482039482039482039482__SYS_HASH_DUMP_END__</span>001928374650129384756102938475610293847561029384756
+                </div>
+            </div>
+        </div>
+
+        <button onclick="window.location.href='index.html'" style="margin-top: 10px;">Ana Menüye Dön</button>
+    </div>
+</body>
+</html>

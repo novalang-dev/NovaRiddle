@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 46 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .shadow-box {
+            border: 1px solid #1e1b4b;
+            background: #020208;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        canvas {
+            border: 1px dashed #312e81;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 46</h1>
+        <p style="color: #6366f1; font-size: 0.9rem;">[ CYBER SHADOW ]</p>
+
+        <!-- Tuval / Canvas Alanı -->
+        <div class="shadow-box">
+            <canvas id="shadowCanvas" width="200" height="40"></canvas>
+        </div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="..." autocomplete="off">
+            <button onclick="checkAnswer()">></button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.7rem; color: #1e293b; margin-top: 25px;">
+            // console -> shadowCanvas.read()
+        </p>
+    </div>
+
+    <script>
+        const cvs = document.getElementById("shadowCanvas");
+        const ctx = cvs.getContext("2d");
+        
+        // Canvas üzerine sembolik gölge çizimi
+        ctx.fillStyle = "#1e1b4b";
+        ctx.font = "12px monospace";
+        ctx.fillText("[SHADOW_DATA_ENCRYPTED]", 10, 25);
+
+        // Konsol üzerinden tuval verisini okuma
+        window.shadowCanvas = {
+            payload: "bmV4dXNfb3ZlcnJpZGVfMDA3", // Base64
+            read: function() {
+                const key = atob(this.payload);
+                console.log("%c[CANVAS_PIXEL_DATA]: " + key, "color: #818cf8; font-weight: bold; font-size: 1rem;");
+                return key;
+            }
+        };
+
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim().toLowerCase();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // Base64 (bmV4dXNfb3ZlcnJpZGVfMDA3) Çözümü: nexus_override_007
+            if (inputVal === "nexus_override_007") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "OK";
+                
+                setTimeout(() => {
+                    window.location.href = "nexus_override_007.html";
+                }, 1000);
+            } else {
+                msgBox.style.color = "#ff0055";
+                msgBox.textContent = "ERR";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") checkAnswer();
+        });
+    </script>
+</body>
+</html>

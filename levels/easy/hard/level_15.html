@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 15 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 15</h1>
+        <p style="color: #ff0055; font-size: 0.9rem;">[ Zor Seviye Finali: Şifreli Hat ]</p>
+
+        <div style="background: #090a0f; border: 1px solid #1a1d2e; padding: 25px; border-radius: 8px; margin: 30px 0;">
+            <p style="font-family: monospace; color: #00ff88; font-size: 0.95rem; margin: 0; word-break: break-all;">
+                cGxhdGluXV9zZXZpeWU=
+            </p>
+        </div>
+
+        <div style="margin: 20px 0;">
+            <input type="text" id="pass-input" placeholder="Çözülmüş anahtarı gir..." autocomplete="off">
+            <button onclick="verifyFinalKey()">KİLİDİ AÇ</button>
+            <div id="status-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.8rem; color: #4a4f6e;">
+            // Base64 veri bloğunu çöz ve anahtarı doğrula.
+        </p>
+    </div>
+
+    <script>
+        // Şifre arka planda Base64 olarak saklanıyor: "platin_seviye"
+        const encodedKey = "cGxhdGluXV9zZXZpeWU=";
+
+        function verifyFinalKey() {
+            const userIn = document.getElementById("pass-input").value.trim();
+            const msg = document.getElementById("status-msg");
+
+            // Girilen değer Base64'e çevrilip karşılaştırılır
+            // Veya atob(encodedKey) ile çözülüp kontrol edilir
+            if (userIn === atob(encodedKey)) {
+                msg.style.color = "#00ff88";
+                msg.textContent = "ZOR SEVİYE TAMAMLANDI! İmkansız Seviye Yükleniyor...";
+                setTimeout(() => {
+                    window.location.href = "../impossible/level_16.html";
+                }, 1200);
+            } else {
+                msg.style.color = "#ff3366";
+                msg.textContent = "ERİŞİM REDDEDİLDİ!";
+            }
+        }
+
+        document.getElementById("pass-input").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") verifyFinalKey();
+        });
+    </script>
+</body>
+</html>

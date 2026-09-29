@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 45 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .overlord-core {
+            border: 2px solid #9333ea;
+            background: rgba(147, 51, 234, 0.05);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            box-shadow: 0 0 25px rgba(147, 51, 234, 0.2);
+        }
+
+        .overlord-title {
+            font-family: monospace;
+            color: #a855f7;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 45</h1>
+        <p style="color: #a855f7; font-size: 0.9rem;">[ OMEGA OVERLORD ]</p>
+
+        <!-- Overlord Çekirdek Alanı -->
+        <div class="overlord-core">
+            <p class="overlord-title">👑 [OVERLORD_NODE_IDLE] 👑</p>
+        </div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="..." autocomplete="off">
+            <button onclick="checkAnswer()">></button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.7rem; color: #1e293b; margin-top: 25px;">
+            // console -> OverlordSystem.authenticate()
+        </p>
+    </div>
+
+    <script>
+        // Asenkron Overlord Doğrulama Nesnesi
+        window.OverlordSystem = {
+            authenticate: async function() {
+                console.log("%c[OVERLORD]: Veri kanalları taranıyor...", "color: #a855f7;");
+                await new Promise(r => setTimeout(r, 1000));
+                
+                const part1 = "Y3liZXJf"; // cyber_
+                const part2 = "c2hhZG93Xw=="; // shadow_
+                const part3 = "eGQ4OA=="; // xd88
+
+                const raw = atob(part1) + atob(part2) + atob(part3);
+                console.log("%c[OVERLORD_ACCESSED]: " + raw, "color: #00ff88; font-weight: bold; font-size: 1rem;");
+                return raw;
+            }
+        };
+
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim().toLowerCase();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // Çözüm: cyber_shadow_xd88
+            if (inputVal === "cyber_shadow_xd88") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "OK";
+                
+                setTimeout(() => {
+                    window.location.href = "cyber_shadow_xd88.html";
+                }, 1000);
+            } else {
+                msgBox.style.color = "#ff0055";
+                msgBox.textContent = "ERR";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") checkAnswer();
+        });
+    </script>
+</body>
+</html>

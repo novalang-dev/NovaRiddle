@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 30 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        @keyframes sparkGlow {
+            0%, 100% { box-shadow: 0 0 5px #ffaa00; border-color: #ffaa00; }
+            50% { box-shadow: 0 0 25px #ff0055; border-color: #ff0055; }
+        }
+
+        .spark-container {
+            background: #05070a;
+            border: 2px solid #ffaa00;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            animation: sparkGlow 1.5s infinite;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 30</h1>
+        <p style="color: #ff0055; font-size: 0.9rem;">[ Very Hard Final ]</p>
+
+        <!-- Kıvılcım / Sistem Çöküş Alanı -->
+        <div class="spark-container" onclick="revealInput()">
+            <p style="font-family: monospace; color: #ffaa00; margin: 0; font-size: 1.1rem;">
+                ⚡ SİSTEM SON KI VIL C I MI NI SAÇ TI ⚡
+            </p>
+            <p style="font-size: 0.8rem; color: #64748b; margin-top: 10px;">
+                (Kapanışı başlatmak için çekirdeğe dokun...)
+            </p>
+        </div>
+
+        <!-- Gizlenmiş Etkileşim Alanı (Tıklanınca Açılır) -->
+        <div id="hidden-area" style="display: none; margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="Geçit anahtarını gir..." autocomplete="off">
+            <button onclick="checkAnswer()">İMKANSIZA GEÇ</button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.75rem; color: #2a2d42; margin-top: 20px;">
+            // KEY: b3lvbmRfdGhlX2xpbWl0cw== (B64)
+        </p>
+    </div>
+
+    <script>
+        function revealInput() {
+            document.getElementById("hidden-area").style.display = "block";
+        }
+
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim().toLowerCase();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // Base64 (b3lvbmRfdGhlX2xpbWl0cw==) Çözümü: beyond_the_limits
+            if (inputVal === "beyond_the_limits") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "VERY HARD TAMAMLANDI! İmkansız Katmana Aktarılıyorsunuz...";
+                
+                setTimeout(() => {
+                    // İmkansız seviye klasöründeki ilk bölüme geçiş
+                    window.location.href = "../impossible/level_21.html";
+                }, 1500);
+            } else {
+                msgBox.style.color = "#ff3366";
+                msgBox.textContent = "SİSTEM KİLİTLİ!";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") checkAnswer();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 29 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .ascii-art {
+            font-family: monospace;
+            white-space: pre;
+            color: #ff4500;
+            font-size: 0.7rem;
+            line-height: 1.2;
+            margin: 20px 0;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 29</h1>
+        <p style="color: #9c27b0; font-size: 0.9rem;">[ Very Hard ]</p>
+
+        <!-- Alev / Duman ASCII Görseli -->
+        <div class="ascii-art">
+   (  .      )
+     )           (              )
+   .  (  .  (   )   .  (  .  (
+        </div>
+
+        <!-- ASCII Sayı Dizisi -->
+        <div style="background: #05070a; border: 1px solid #1a1d2e; padding: 20px; border-radius: 8px; margin: 20px 0; font-family: monospace; color: #ff8c00; font-size: 1rem; letter-spacing: 2px;">
+            102 105 110 97 108 95 115 112 97 114 107
+        </div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="..." autocomplete="off">
+            <button onclick="checkAnswer()">></button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.75rem; color: #2a2d42; margin-top: 20px;">
+            // DEC 2 TEXT
+        </p>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim().toLowerCase();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // ASCII Çözümü: final_spark
+            if (inputVal === "final_spark") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "OK";
+                
+                setTimeout(() => {
+                    window.location.href = "final_spark.html";
+                }, 1000);
+            } else {
+                msgBox.style.color = "#ff3366";
+                msgBox.textContent = "ERR";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") checkAnswer();
+        });
+    </script>
+</body>
+</html>

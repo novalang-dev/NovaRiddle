@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 4 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* 
+           GİZLİ STİL NOTU:
+           Arka plana gizlenen resmin adı sonraki seviyenin anahtarıdır.
+        */
+        .secret-bg-card {
+            background-image: url('images/gece_kusu.png');
+            background-size: cover;
+            background-position: center;
+            border: 1px solid #00ff88;
+        }
+    </style>
+</head>
+<body>
+    <div class="card secret-bg-card">
+        <h1>BÖLÜM 4</h1>
+        <p style="color: #8a8fbd; font-size: 0.9rem;">[ Kolay Seviye: Katmanların Ötesi ]</p>
+
+        <img src="images/gece_kusu.jpg" alt="Gizemli Devre Görseli" style="max-width: 80%; border-radius: 8px; border: 1px solid #00ff88; box-shadow: 0 0 10px rgba(0,255,136,0.2);">
+        <div class="hint-box" style="margin-top: 25px; background-color: rgba(15, 17, 26, 0.9);">
+            <strong>GÖREV:</strong><br>
+            Bazen resimler <code>&lt;img&gt;</code> etiketleri arasında yer almaz. CSS stil katmanlarının arkasına sızarlar.
+            <br><br>
+            Sayfa kaynağını (<code>F12</code>) aç ve bu kartın (<code>.secret-bg-card</code>) arkasına gizlenmiş olan arka plan resminin adını bul!
+        </div>
+
+        <p style="font-size: 0.85rem; color: #a0a5c0; margin-top: 15px;">
+            İpucu: <code>&lt;style&gt;</code> bloğundaki <code>background-image</code> adresini incele.
+        </p>
+    </div>
+</body>
+</html>

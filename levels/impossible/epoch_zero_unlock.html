@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 35 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 35</h1>
+        <p style="color: #ff0055; font-size: 0.9rem;">[ IMPOSSIBLE ]</p>
+
+        <!-- Epoch Zaman Damgası Alanı -->
+        <div style="background: #000; border: 1px solid #1e293b; padding: 25px; border-radius: 8px; margin: 30px 0; font-family: monospace; color: #00f0ff; font-size: 1.2rem; letter-spacing: 2px;">
+            1704067200
+        </div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="YYYY-MM-DD" autocomplete="off">
+            <button onclick="checkAnswer()">></button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.7rem; color: #0f172a; margin-top: 25px;">
+            // Convert epoch timestamp to UTC Date Format (YYYY-MM-DD)
+        </p>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // Timestamp 1704067200 -> UTC Date: 2024-01-01
+            if (inputVal === "2024-01-01" || inputVal === "2024_01_01") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "OK";
+                
+                setTimeout(() => {
+                    window.location.href = "quantum_state_0.html";
+                }, 1000);
+            } else {
+                msgBox.style.color = "#ff0055";
+                msgBox.textContent = "ERR";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") checkAnswer();
+        });
+    </script>
+</body>
+</html>

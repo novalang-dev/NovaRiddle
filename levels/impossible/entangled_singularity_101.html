@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 37 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .singularity-core {
+            width: 50px;
+            height: 50px;
+            background: #000;
+            border: 2px solid #ff0055;
+            border-radius: 50%;
+            margin: 40px auto;
+            box-shadow: 0 0 30px #ff0055;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: monospace;
+            color: #000;
+            user-select: all;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 37</h1>
+        <p style="color: #ff0055; font-size: 0.9rem;">[ IMPOSSIBLE ]</p>
+
+        <!-- Tekillik Çekirdeği -->
+        <div class="singularity-core" id="core-node">
+            &#8203;<!-- Zero Width Space -->
+        </div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="..." autocomplete="off">
+            <button onclick="checkAnswer()">></button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.7rem; color: #0f172a; margin-top: 25px;">
+            // document.getElementById('core-node').getAttribute('data-singularity')
+        </p>
+    </div>
+
+    <script>
+        // Gizli veri attribute'u üzerinden Base64 şifresi
+        document.getElementById('core-node').setAttribute('data-singularity', 'ZXZlbnRfaG9yaXpvbl94');
+
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim().toLowerCase();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // Base64 (ZXZlbnRfaG9yaXpvbl94) Çözümü: event_horizon_x
+            if (inputVal === "event_horizon_x") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "OK";
+                
+                setTimeout(() => {
+                    window.location.href = "event_horizon_x.html";
+                }, 1000);
+            } else {
+                msgBox.style.color = "#ff0055";
+                msgBox.textContent = "ERR";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") checkAnswer();
+        });
+    </script>
+</body>
+</html>

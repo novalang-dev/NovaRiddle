@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 42 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .supernova-core {
+            border: 2px solid #ff0055;
+            background: radial-gradient(circle, rgba(255,0,85,0.2) 0%, rgba(0,0,0,1) 80%);
+            padding: 35px;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px #ff0055;
+            animation: pulseCore 1.2s infinite alternate;
+        }
+
+        @keyframes pulseCore {
+            from { transform: scale(0.95); box-shadow: 0 0 15px #ff0055; }
+            to { transform: scale(1.05); box-shadow: 0 0 45px #ff0055; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 42</h1>
+        <p style="color: #ff0055; font-size: 0.9rem;">[ SUPERNOVA CORE ]</p>
+
+        <!-- Süpernova Çekirdeği -->
+        <div class="supernova-core">
+            <span style="font-family: monospace; color: #fff; font-weight: bold; font-size: 0.8rem;">CRITICAL</span>
+        </div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="..." autocomplete="off">
+            <button onclick="checkAnswer()">></button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.7rem; color: #1e293b; margin-top: 25px;">
+            // console -> novaBurst.decode()
+        </p>
+    </div>
+
+    <script>
+        // Patlama ASCII Dizi Verisi: "genesis_reborn_x"
+        window.novaBurst = {
+            bytes: [103, 101, 110, 101, 115, 105, 115, 95, 114, 101, 98, 111, 114, 110, 95, 120],
+            decode: function() {
+                const result = String.fromCharCode(...this.bytes);
+                console.log("%c[SUPERNOVA_BURST]: " + result, "color: #ff0055; font-weight: bold; font-size: 1rem;");
+                return result;
+            }
+        };
+
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim().toLowerCase();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // ASCII Çözümü: genesis_reborn_x
+            if (inputVal === "genesis_reborn_x") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "OK";
+                
+                setTimeout(() => {
+                    window.location.href = "genesis_reborn_x.html";
+                }, 1000);
+            } else {
+                msgBox.style.color = "#ff0055";
+                msgBox.textContent = "ERR";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") checkAnswer();
+        });
+    </script>
+</body>
+</html>

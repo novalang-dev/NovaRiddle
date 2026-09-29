@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 49 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .phantom-box {
+            border: 1px solid #334155;
+            background: #020617;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        /* Ekran dışına itilmiş gizli veri */
+        #phantom-data {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 49</h1>
+        <p style="color: #64748b; font-size: 0.9rem;">[ PHANTOM HORIZON ]</p>
+
+        <!-- Hayalet Alanı -->
+        <div class="phantom-box">
+            <p style="font-family: monospace; color: #94a3b8; font-size: 0.9rem; margin: 0;">
+                👻 [GHOST_SIGNAL_DETECTED] 👻
+            </p>
+            <!-- DOM İçinde Gizlenmiş Veri -->
+            <span id="phantom-data" data-key="YWJ5c3NhbF9zaW5ndWxhcml0eV94"></span>
+        </div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="..." autocomplete="off">
+            <button onclick="checkAnswer()">></button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.7rem; color: #1e293b; margin-top: 25px;">
+            // inspect element -> #phantom-data[data-key]
+        </p>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim().toLowerCase();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // Base64 (YWJ5c3NhbF9zaW5ndWxhcml0eV94) Çözümü: abyssal_singularity_x
+            if (inputVal === "abyssal_singularity_x") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "OK";
+                
+                setTimeout(() => {
+                    window.location.href = "abyssal_singularity_x.html";
+                }, 1000);
+            } else {
+                msgBox.style.color = "#ff0055";
+                msgBox.textContent = "ERR";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") checkAnswer();
+        });
+    </script>
+</body>
+</html>

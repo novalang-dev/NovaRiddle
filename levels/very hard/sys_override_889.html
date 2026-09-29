@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 20 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* Ekranın arkasında sinsi sinsi beliren glitch efekti */
+        @keyframes glitchBlink {
+            0%, 92%, 100% { opacity: 0; transform: scale(0.98); }
+            94% { opacity: 0.8; transform: scale(1.02); color: #ff0055; text-shadow: 2px 2px #00ffff; }
+            96% { opacity: 0.2; transform: scale(1); color: #00ff88; }
+            98% { opacity: 0.9; transform: scale(1.01); color: #ff0000; }
+        }
+
+        .creepy-glitch {
+            font-family: monospace;
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            animation: glitchBlink 3.5s infinite;
+            margin: 15px 0;
+            user-select: none;
+        }
+
+        .alarm-box {
+            background: #120307;
+            border: 1px solid #ff0055;
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 20</h1>
+        <p style="color: #ff0055; font-size: 0.9rem;">[ Çok Zor Seviye Finali: İhlal ]</p>
+
+        <!-- Ürpertici Alarm Kutusu -->
+        <div class="alarm-box">
+            <p style="color: #ff3366; font-family: monospace; margin: 0 0 10px 0; font-size: 0.95rem;">
+                ⚠️ UYARI: Yetkisiz kök erişimi tespit edildi!
+            </p>
+            <p style="color: #8a8fbd; font-size: 0.85rem; margin: 0;">
+                Sistem belleği bozuluyor. Sesler yaklaşıyor...
+            </p>
+            
+            <!-- Anlık çakan gizli şifre alanı -->
+            <div class="creepy-glitch">
+                SYSTEM_CORRUPTED_666
+            </div>
+        </div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="Bozuk veriyi temizle..." autocomplete="off">
+            <button onclick="checkAnswer()">İHLAALİ DURDUR</button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.8rem; color: #4a4f6e;">
+            // Ekran bozulmalarını izle. Kırmızı parlamadaki gizli dizeyi yakala.
+        </p>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // Şifre: SYSTEM_CORRUPTED_666
+            if (inputVal === "SYSTEM_CORRUPTED_666") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "İHLAAL DURDURULDU. Çok Zor Seviye tamamlandı!";
+                
+                setTimeout(() => {
+                    window.location.href = "system_corrupted_666.html";
+                }, 1400);
+            } else {
+                msgBox.style.color = "#ff0055";
+                msgBox.textContent = "GEÇSİZ KOD! Sistem kilitleniyor...";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                checkAnswer();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial 5 - Nova Riddle</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- 
+        ====================================================================
+        İPÜCÜ (Öğretim Finali):
+        Sisteme erişim şifresi aşağıda gizlenmiştir.
+        Kilit Şifresi: "sisteme_giris_onaylandi"
+        ====================================================================
+    -->
+</head>
+<body>
+    <div class="card">
+        <h1>TUTORIAL 5</h1>
+        <p style="color: #8a8fbd; font-size: 0.9rem;">[ Adım 5: İlk Kilit / Öğretim Finali ]</p>
+
+        <div class="hint-box" style="margin-top: 25px;">
+            <strong>GÖREV:</strong><br>
+            Tebrikler! Temel teknikleri öğrendin. Şimdi bu kilitli paneli aşman gerekiyor.
+            <br><br>
+            Bu sayfanın kaynak kodlarında (<code>Ctrl + U</code> veya <code>F12</code>) gizlenmiş olan kilit şifresini bul, aşağıdaki kutuya yaz ve erişimi sağla!
+        </div>
+
+        <!-- Şifre Giriş Formu -->
+        <div style="margin: 30px 0;">
+            <input type="text" id="pass-input" placeholder="Şifreyi buraya gir..." autocomplete="off">
+            <button id="submit-btn" onclick="checkPassword()">KİLİDİ AÇ</button>
+            <div id="error-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.95rem;"></div>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const input = document.getElementById("pass-input").value.trim().toLowerCase();
+            const errorMsg = document.getElementById("error-msg");
+
+            // Doğru Şifre Kontrolü
+            if (input === "sisteme_giris_onaylandi") {
+                errorMsg.style.color = "#00ff88";
+                errorMsg.textContent = "ERİŞİM ONAYLANDI! Kolay Seviye Seviye 1 Yükleniyor...";
+                setTimeout(() => {
+                    window.location.href = "../easy/level_1.html";
+                }, 1200);
+            } else {
+                errorMsg.style.color = "#ff3366";
+                errorMsg.textContent = "HATALI ŞİFRE! Kaynak kodları tekrar inceleyin.";
+                document.getElementById("pass-input").value = "";
+            }
+        }
+
+        // Enter tuşu ile gönderme desteği
+        document.getElementById("pass-input").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                checkPassword();
+            }
+        });
+    </script>
+</body>
+</html>

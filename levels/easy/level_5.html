@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 5 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 5</h1>
+        <p style="color: #8a8fbd; font-size: 0.9rem;">[ Kolay Seviye Finali: Dijital Kurabiyeler ]</p>
+
+        <div class="hint-box" style="margin-top: 25px;">
+            <strong>GÖREV:</strong><br>
+            Sunucular hakkındaki verileri hatırlamak için küçük veri paketleri bırakır.
+            <br><br>
+            Klavyenden <code>F12</code> basıp Geliştirici Araçlarını aç. <strong>Application</strong> (Uygulama) sekmesine geç ve sol taraftaki <strong>Cookies</strong> (Çerezler) başlığının altındaki gizli <code>secret_key</code> değerini bul!
+        </div>
+
+        <!-- Şifre Giriş Formu -->
+        <div style="margin: 30px 0;">
+            <input type="text" id="pass-input" placeholder="Çerezdeki şifreyi gir..." autocomplete="off">
+            <button id="submit-btn" onclick="checkPassword()">ORTA SEVİYEYE GEÇ</button>
+            <div id="error-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.95rem;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Sayfa yüklendiğinde tarayıcıya gizli çerez yerleştirilir
+        document.cookie = "secret_key=orta_seviye_basliyor; path=/";
+
+        function checkPassword() {
+            const input = document.getElementById("pass-input").value.trim().toLowerCase();
+            const errorMsg = document.getElementById("error-msg");
+
+            if (input === "orta_seviye_basliyor") {
+                errorMsg.style.color = "#00ff88";
+                errorMsg.textContent = "TEBRİKLER! Kolay seviyeyi tamamladınız. Orta Seviye Yükleniyor...";
+                setTimeout(() => {
+                    window.location.href = "../medium/level_6.html";
+                }, 1200);
+            } else {
+                errorMsg.style.color = "#ff3366";
+                errorMsg.textContent = "HATALI ŞİFRE! F12 > Application > Cookies bölümünü kontrol edin.";
+                document.getElementById("pass-input").value = "";
+            }
+        }
+
+        document.getElementById("pass-input").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                checkPassword();
+            }
+        });
+    </script>
+</body>
+</html>

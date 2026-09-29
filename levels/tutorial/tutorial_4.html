@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial 4 - Nova Riddle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <h1>TUTORIAL 4</h1>
+        <p style="color: #8a8fbd; font-size: 0.9rem;">[ Adım 4: Sistem Logları ]</p>
+        
+        <div class="hint-box" style="margin-top: 30px;">
+            <strong>GÖREV:</strong><br>
+            Bazen mesajlar ekrana değil, sistemin iç haberleşme kanallarına yazılır.
+            <br><br>
+            Klavyenden <code>F12</code> tuşuna basıp geliştirici konsolunu aç. En üstteki sekmelerden <strong>"Console" (Konsol)</strong> sekmesine tıkla ve oradaki sistem mesajını oku!
+        </div>
+
+        <p style="font-size: 0.85rem; color: #5a5f80; margin-top: 20px;">
+            İpucu: Konsoldaki mesajı bulunca bir sonraki adrese geç.
+        </p>
+    </div>
+
+    <script>
+        // Sayfa yüklendiğinde konsola renkli şifre mesajı gönderir
+        console.log(
+            "%c[SİSTEM MESAJI] %cTebrikler! Konsol kayıtlarını okumayı başardın. Sonraki Adım: %ctutorial_5.html",
+            "color: #ff0055; font-weight: bold; font-size: 14px;",
+            "color: #ffffff; font-size: 14px;",
+            "color: #00ff88; font-weight: bold; font-size: 14px;"
+        );
+    </script>
+</body>
+</html>

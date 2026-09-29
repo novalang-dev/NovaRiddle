@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 14 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        /* Gizli element için stil */
+        .hidden-portal {
+            display: none; /* Görünmez yapılmıştır, F12 Elements sekmesinden kaldırılmalı */
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 14</h1>
+        <p style="color: #ff0055; font-size: 0.9rem;">[ Zor Seviye: Görünmeyen Katman ]</p>
+
+        <div style="background: #090a0f; border: 1px solid #1a1d2e; padding: 25px; border-radius: 8px; margin: 30px 0;">
+            <p style="font-family: monospace; color: #8a8fbd; font-size: 0.95rem; margin: 0;">
+                Gözlerin her şeyi görmez. DOM ağacını incele.
+            </p>
+        </div>
+
+        <!-- Oyuncunun F12 Elements sekmesinden display: none veya hidden niteliğini kaldırması gereken gizli alan -->
+        <div class="hidden-portal" id="secret-zone">
+            <p style="color: #00ff88; margin-bottom: 15px;">GİZLİ GEÇİT KEŞFEDİLDİ!</p>
+            <a href="level_15.html" style="background: #00ff88; color: #0f111a; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block;">ZOR SEVİYE FİNALİNE GEÇ</a>
+        </div>
+
+        <p style="font-size: 0.8rem; color: #4a4f6e; margin-top: 20px;">
+            // Element incelemesi (Inspect Element) gereklidir.
+        </p>
+    </div>
+</body>
+</html>

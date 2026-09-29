@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 21 - Nova Riddle</title>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .terminal-box {
+            background: #05070a;
+            border: 1px dashed #334155;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BÖLÜM 21</h1>
+        <p style="color: #9c27b0; font-size: 0.9rem;">[ Çok Zor Seviye: Derin İzler ]</p>
+
+        <!-- Ekran Alanı -->
+        <div class="terminal-box">
+            <p style="color: #64748b; font-family: monospace; font-size: 0.85rem; margin: 0;">
+                > Ekranda görünen her şey bir illüzyondur.<br>
+                > Gerçek veri arayüzde değil, arka planda akar.<br>
+                > Gözlerinle değil, konsolla bak.
+            </p>
+        </div>
+
+        <!-- Etkileşim Alanı -->
+        <div style="margin: 20px 0;">
+            <input type="text" id="user-answer" placeholder="Konsoldan çıkarılan anahtar..." autocomplete="off">
+            <button onclick="checkAnswer()">ÇÖZÜMÜ YÜKLE</button>
+            <div id="feedback-msg" style="margin-top: 15px; font-weight: bold; font-size: 0.9rem;"></div>
+        </div>
+
+        <p style="font-size: 0.8rem; color: #4a4f6e;">
+            // F12 tuşuna bas veya Öğeyi Denetle yap. Konsol (Console) sekmesindeki gizli mesajı oku.
+        </p>
+    </div>
+
+    <script>
+        // Tarayıcı konsoluna yazdırılan gizli geliştirici mesajı
+        console.log("%c[NOVA_SYSTEM_LOG]", "color: #ff0055; font-weight: bold; font-size: 14px;");
+        console.log("Sistem arka plan değişkeni sızdırıldı.");
+        console.log("Bölüm 21 Şifresi: %cshadow_memory_leak", "color: #00ff88; font-style: italic; font-weight: bold;");
+
+        function checkAnswer() {
+            const inputVal = document.getElementById("user-answer").value.trim().toLowerCase();
+            const msgBox = document.getElementById("feedback-msg");
+
+            // Gizli Şifre: shadow_memory_leak
+            if (inputVal === "shadow_memory_leak") {
+                msgBox.style.color = "#00ff88";
+                msgBox.textContent = "BELLEK SIZINTISI YAKALANDI! Sonraki katmana geçiliyor...";
+                
+                setTimeout(() => {
+                    window.location.href = "shadow_memory_leak.html";
+                }, 1200);
+            } else {
+                msgBox.style.color = "#ff3366";
+                msgBox.textContent = "HATALI ANAHTAR. Konsol çıktılarını tekrar kontrol et.";
+            }
+        }
+
+        document.getElementById("user-answer").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                checkAnswer();
+            }
+        });
+    </script>
+</body>
+</html>
